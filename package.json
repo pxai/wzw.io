@@ -1,0 +1,28 @@
+{
+  "name": "wzw.io",
+  "version": "1.0.0",
+  "description": "World Zipped Web software, server and client",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxai/wzw.io.git"
+  },
+  "keywords": [
+    "proxy",
+    "minification",
+    "optimization",
+    "privacy"
+  ],
+  "author": "Pello Altadill",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/pxai/wzw.io/issues"
+  },
+  "homepage": "https://github.com/pxai/wzw.io#readme"
+}
