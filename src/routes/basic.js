@@ -4,13 +4,6 @@
  * Pello Altadill - http://pello.io
  */
 module.exports = function (app) {
-
-    // Just one simple middleware
-    app.use(function timeLog(req, res, next) {
-        console.log('Time: ', Date.now());
-        next();
-    });
-
     /**
      * Mighty homepage
      */
