@@ -1,5 +1,5 @@
 /**
- * index.js
+ * middleware/index.js
  * https://github.com/pxai/wzw.io
  * Pello Altadill - http://pello.io
  */
