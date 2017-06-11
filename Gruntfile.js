@@ -26,7 +26,7 @@ grunt.initConfig({
 			curly: true,
 			eqeqeq: true
 		},
-		target1: ['Gruntfile.js','src/js/*.js','!src/**/*.js']
+		target1: ['Gruntfile.js','src/public/js/*.js','!src/**/*.js']
 	},
     htmllint:  {
             options: {
@@ -34,8 +34,8 @@ grunt.initConfig({
                 reportpath: false // output to console
             },
             src: [
-                'src/*.html', // Include all HTML files in this directory.
-                '!src/*.min.html' // Exclude any files ending with `.min.html`
+                'src/public/*.html', // Include all HTML files in this directory.
+                '!src/public/*.min.html' // Exclude any files ending with `.min.html`
             ]
         },
     csslint:  {
@@ -43,8 +43,8 @@ grunt.initConfig({
            
             },
             src: [
-                'src/css/*.css', // Include all HTML files in this directory.
-                '!src/css/*.min.css' // Exclude any files ending with `.min.html`
+                'src/public/css/*.css', // Include all HTML files in this directory.
+                '!src/public/css/*.min.css' // Exclude any files ending with `.min.html`
             ]
         },
   concat: {
@@ -52,22 +52,22 @@ grunt.initConfig({
         separator: ';'
       },
       dist: {
-        src: ['src/js/jquery.js','src/js/bootstrap.js','src/js/question.js','src/js/quiz.js','src/js/game.js','src/js/app.js','!src/**/*.min.js'],
-        dest: 'stage/js/app.min.js'
+        src: ['src/public/js/jquery.js','src/public/js/bootstrap.js','!src/**/*.min.js'],
+        dest: 'src/public/stage/js/app.min.js'
       }
     },
     clean : {
     	target1 : {
-        	src : [ 'src/**/*.*~', 'dist/*', 'stage/*']
+        	src : [ 'src/**/*.*~', 'src/public/dist/*', 'src/public/stage/*']
     	}
 	},
 cssmin: {
   minify: {
     files: [{
       expand: true,
-      cwd: 'src/css',
-      src: ['**/*.css', '!**/*.min.css'],
-      dest: 'dist/css',
+      cwd: 'src/public/css',
+      src: ['src/public/css/*.css', '!**/*.min.css'],
+      dest: 'src/public/dist/css',
       ext: '.min.css'
     }]
   },
@@ -77,7 +77,7 @@ cssmin: {
   },
   combine: {
     files: {
-      'dist/css/app.min.css': ['!dist/css/*.min.css', 'dist/css/*.css']
+      'src/public/dist/css/app.min.css': ['!src/public/dist/css/*.min.css', 'src/public/dist/css/*.css']
     }
   }
 },
@@ -88,7 +88,7 @@ htmlmin: {
         collapseWhitespace: true
       },
       files: {                                   // Dictionary of files
-        'dist/index.html': 'stage/index.html'     // 'destination': 'source'
+        'src/public/dist/index.html': 'src/public/stage/index.html'     // 'destination': 'source'
       }
   }
  },
@@ -96,7 +96,7 @@ htmlmin: {
         report: 'min',
 	target1: {
 		files : {
-			'dist/js/app.min.js':  ['stage/js/app.min.js']
+			'src/public/dist/js/app.min.js':  ['src/public/stage/js/app.min.js']
 		}
         }
  },
@@ -105,7 +105,7 @@ htmlmin: {
 	},
 	dist : {
 		files: {
-		  'stage/index.html': ['src/index.html']
+		  'src/public/stage/index.html': ['src/public/src/index.html']
 		}
 	}
  }
