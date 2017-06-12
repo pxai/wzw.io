@@ -1,6 +1,7 @@
 # wzw.io
 
 # Testing
+## e2e
 Make sure to update Firefox or any other browser
 for the e2e testing
 
@@ -10,3 +11,10 @@ npm run post-install
 ```
 
 To update selenium driver
+
+## Mocha
+Just run 
+```
+mocha
+```
+It will look for test directory and run the tests files
