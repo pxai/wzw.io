@@ -46,6 +46,7 @@
     "grunt-html": "^8.0.2",
     "grunt-processhtml": "^0.4.0",
     "jasmine": "^2.4.1",
+    "mocha": "^3.4.2",
     "protractor": "^3.3.0"
   }
 }
