@@ -15,15 +15,13 @@ describe('#greet()', function() {
   });
 });
 
-/*var chai = require("chai");
-var expect = require('expect');
-var chaiAsPromised = require("chai-as-promised");*/
-//chai.use(chaiAsPromised);
+var chai = require('chai');
+var expect = chai.expect;
+var chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
 
-describe('#greet()', function() {
+describe('#greet() with chai', function() {
   it('respond with a given greet with chai-as-promised', function() {
-    return greeter.greet('Hello').then(function(data) {
-        assert.equal(data,'Hello');
-    });
+    return expect(greeter.greet('Hello')).to.eventually.equal('Hello');
   });
 });
