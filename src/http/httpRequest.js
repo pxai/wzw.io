@@ -1,10 +1,21 @@
-const greeter = require('./src/http/greeter');
-greeter.greet('epa').then(m => console.log(m));
-greeter.greet('epa');
-
 const http = require('http');
 
-        let get = function(url) {
+exports.HttpRequest =  function (url) {
+	// Properties ///////////////
+	this.url = url;
+	this.requestDate = new Date();
+    this.statusCode = null;
+    this.statusMessage = null;
+
+    this.req;
+
+
+
+	// Methods ////////////////
+	/**
+	* greet, says something -what-
+	*/
+	this.get = function(url) {
             return new Promise(function(resolve, reject) {
                 const options = {
                     port: 80,
@@ -14,10 +25,11 @@ const http = require('http');
                 };
                 http.get(options,function(res) {
                             var content = [];
+                            this.statusCode = res.statusCode;
+                            this.statusMessage = res.statusMessage;
                             res.on('data', function (e){
                                 content.push(e);
                             }).on('end', function () {
-                                console.log(content);
                                 resolve(content);
                             });
                 }).on('error', function(e) {
@@ -26,4 +38,12 @@ const http = require('http');
             });
         }
 
-get('www.google.es');
+   
+
+	/**
+	* toString, returns all properties
+	*/
+	this.toString = function () {
+		return 'Name: HttpRequest';
+	}
+}
