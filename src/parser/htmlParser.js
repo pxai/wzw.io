@@ -1,5 +1,5 @@
 const cheerio = require('cheerio');
-
+const root = 'http://wzw.io/p/';
 exports.HtmlParser =  function (url) {
 	// Properties ///////////////
 
