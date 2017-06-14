@@ -1,8 +1,8 @@
 
 const assert = require('assert');
-const httpRequest = require('../src/http/httpRequest');
+const htmlParser = require('../src/parser/htmlParser');
 
-var client = new httpRequest.HttpRequest();
+var parser = new htmlParser.HtmlParser();
 
 beforeEach(function() {
 
@@ -11,10 +11,10 @@ beforeEach(function() {
 
 describe('#toString()', function() {
   it('responds to String with one message', function() {
-      assert.equal(client.toString(),'Name: HttpRequest');
+      assert.equal(parser.toString(),'Name: HtmlParser');
   });
 });
-
+/*
 var chai = require('chai');
 var expect = chai.expect;
 var chaiAsPromised = require("chai-as-promised");
@@ -34,4 +34,4 @@ describe('#get(wrongurl)', function() {
   it('responds with empty object with wrong urls', function() {
     return expect(client.get('wrongurl')).to.be.empty; // == {}
   });
-});
+});*/

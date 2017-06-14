@@ -1,29 +1,8 @@
 const greeter = require('./src/http/greeter');
 greeter.greet('epa').then(m => console.log(m));
-greeter.greet('epa');
+const httpRequest = require('./src/http/httpRequest');
 
-const http = require('http');
+var client = new httpRequest.HttpRequest();
 
-        let get = function(url) {
-            return new Promise(function(resolve, reject) {
-                const options = {
-                    port: 80,
-                    hostname: url,
-                    method: 'GET',
-                    path: '/'
-                };
-                http.get(options,function(res) {
-                            var content = [];
-                            res.on('data', function (e){
-                                content.push(e);
-                            }).on('end', function () {
-                                console.log(content);
-                                resolve(content);
-                            });
-                }).on('error', function(e) {
-                    reject(e);
-                });
-            });
-        }
 
-get('www.google.es');
+client.get('www.google.es').then(console.log('ok'));
