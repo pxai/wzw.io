@@ -2,7 +2,7 @@
 const assert = require('assert');
 const httpRequest = require('../src/http/httpRequest');
 
-var client = new httpRequest.HttpRequest();
+var httpClient = new httpRequest.HttpRequest();
 
 beforeEach(function() {
 
@@ -22,16 +22,16 @@ chai.use(chaiAsPromised);
 
 describe('#get(www.google.es)', function() {
   it('responds with content from google', function() {
-    return expect(client.get('www.google.es')).to.not.equal('');
+    return expect(httpClient.get('www.google.es')).to.not.equal('');
   });
 
     it('responds with content from google', function() {
-      return expect(client.get('www.google.es')).to.not.equal('');
+      return expect(httpClient.get('www.google.es')).to.not.equal('');
   });
 });
 
 describe('#get(wrongurl)', function() {
   it('responds with empty object with wrong urls', function() {
-    return expect(client.get('wrongurl')).to.be.empty; // == {}
+    return expect(httpClient.get('wrongurl')).to.be.empty; // == {}
   });
 });
