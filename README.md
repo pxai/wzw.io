@@ -1,5 +1,5 @@
 # wzw.io
-
+[![Build Status](https://travis-ci.org/pxai/wzw.io.svg?branch=master)](https://travis-ci.org/pxai/wzw.io)
 # Testing
 ## e2e
 Make sure to update Firefox or any other browser
