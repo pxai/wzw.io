@@ -33,8 +33,14 @@ describe('#get(www.google.es)', function() {
   });
 });*/
 
-describe('#changeRefs(html)', function() {
+/*describe('#changeRefs(html)', function() {
   it('responds with empty object with empty html', function() {
     return expect(client.changeRefs('')).to.equal(''); // == {}
   });
 });
+
+describe('#changeRefs(html)', function() {
+  it('changes href reference', function() {
+    return expect(client.changeRefs('')).to.equal(''); // == {}
+  });
+});*/
