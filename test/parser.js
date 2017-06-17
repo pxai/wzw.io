@@ -1,7 +1,7 @@
 
 const assert = require('assert');
 const htmlParser = require('../src/parser/htmlParser');
-
+const rootUrl = 'http://wzw.io/p/';
 var parser = new htmlParser.HtmlParser();
 
 beforeEach(function() {
@@ -22,25 +22,15 @@ var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
 
-/*
-describe('#get(www.google.es)', function() {
-  it('responds with content from google', function() {
-    return expect(client.get('www.google.es')).to.not.equal('');
-  });
-
-    it('responds with content from google', function() {
-      return expect(client.get('www.google.es')).to.not.equal('');
-  });
-});*/
-
-/*describe('#changeRefs(html)', function() {
+describe('#changeRefs(html)', function() {
   it('responds with empty object with empty html', function() {
-    return expect(client.changeRefs('')).to.equal(''); // == {}
+    return expect(parser.changeRefs('')).to.be.empty; // == {}
   });
 });
 
 describe('#changeRefs(html)', function() {
   it('changes href reference', function() {
-    return expect(client.changeRefs('')).to.equal(''); // == {}
+    let url = 'http://www.google.es';
+    return expect(parser.changeRefs(url)).to.eventually.equal(rootUrl + url); // == {}
   });
-});*/
+});

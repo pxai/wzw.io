@@ -11,7 +11,7 @@ beforeEach(function() {
 
 describe('#toString()', function() {
   it('responds to String with one message', function() {
-      assert.equal(client.toString(),'Name: HttpRequest');
+      assert.equal(httpClient.toString(),'Name: HttpRequest');
   });
 });
 

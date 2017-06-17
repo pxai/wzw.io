@@ -1,7 +1,7 @@
 const http = require('http');
 
 exports.HttpRequest =  function (url) {
-	// Properties ///////////////
+
 	this.url = url;
 	this.requestDate = new Date();
     this.statusCode = null;
@@ -9,12 +9,6 @@ exports.HttpRequest =  function (url) {
 
     this.req;
 
-
-
-	// Methods ////////////////
-	/**
-	* greet, says something -what-
-	*/
 	this.get = function(url) {
             return new Promise(function(resolve, reject) {
                 const options = {
@@ -40,9 +34,6 @@ exports.HttpRequest =  function (url) {
 
    
 
-	/**
-	* toString, returns all properties
-	*/
 	this.toString = function () {
 		return 'Name: HttpRequest';
 	}
