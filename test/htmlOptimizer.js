@@ -3,6 +3,15 @@ const assert = require('assert');
 const htmlOptimizer = require('../src/optimizer/htmlOptimizer');
 const rootUrl = 'http://wzw.io/p/';
 var optimizer = new htmlOptimizer.HtmlOptimizer();
+const sampleHTML = '<script type=\"text\/javascript\">var abc= \"hello\";<\/script>\r\n\r\n\r\n' +
+            '<style type=\"text\/css\">#foo { color: red;        }          <\/style>\r\n\r\n\r\n' +
+            '<div>\r\n  <div>\r\n    <div><!-- hello -->\r\n      <div>' +
+            '<!--! hello -->\r\n        <div>\r\n          <div class=\"\">\r\n\r\n            ' +
+            '<textarea disabled=\"disabled\">     this is a textarea <\/textarea>\r\n          ' +
+            '<\/div>\r\n        <\/div>\r\n      <\/div>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>' +
+            '<pre>       xxxx<\/pre><span>x<\/span> <span>Hello<\/span> <b>billy<\/b>     \r\n' +
+            '<input type=\"text\">\r\n<textarea><\/textarea>\r\n<pre><\/pre>';
+const optimizedHTML = '<script>var abc="hello"</script><style>#foo{color:red}</style><div><div><div><div><!--! hello --><div><div><textarea disabled>     this is a textarea </textarea></div></div></div></div></div></div><pre>       xxxx</pre><span>x</span><span>Hello</span><b>billy</b><input><textarea></textarea><pre></pre></b></span></pre></div></style></script>';
 
 beforeEach(function() {
 
@@ -23,16 +32,23 @@ chai.use(chaiAsPromised);
 
 
 describe('#htmlOptimizer.optimize()', function() {
-  it('responds with empty object with empty html', function() {
-    return expect(optimizer.optimize('')).to.be.empty; // == {}
-  });
+ it('responds with empty object with empty html', function() {
+   return expect(optimizer.optimize('')).to.be.empty; // == {}
+ });
 });
+
+describe('#optimize()', function() {
+   it('responds with optimized html with some html', function() {
+    return expect(optimizer.optimize('<div><p>\n\r\r\r</p></div>')).to.be.equals('<div><p></p></div>');
+   });
+});
+
 
 /*
 describe('#optimize()', function() {
-  it('changes href reference', function() {
-    let url = 'http://www.google.es';
-    return expect(parser.changeRefs(url)).to.eventually.equal(rootUrl + url); // == {}
-  });
+   it('responds with optimized html with complex html', function() {
+    return expect(optimizer.optimize(sampleHTML)).to.be.equals(optimizedHTML);
+   });
 });
 */
+console.log(optimizer.optimize('<div><p>\n\r\r\r</p></div>'));

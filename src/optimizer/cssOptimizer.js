@@ -2,12 +2,12 @@ const cheerio = require('cheerio');
 
 exports.CssOptimizer =  function (url) {
 
-	this.optimize = function(html) {
+	this.optimize = function(css) {
             return new Promise(function(resolve, reject) {
-				if (html==='') {
+				if (css==='') {
 					resolve('');
 				} else {
-               		resolve(html);
+               		resolve(css);
 				}
             });
         }

@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const htmlmin = require('htmlmin');
 
 exports.HtmlOptimizer =  function (url) {
 
@@ -7,7 +7,7 @@ exports.HtmlOptimizer =  function (url) {
 				if (html==='') {
 					resolve('');
 				} else {
-               		resolve(html);
+               		return resolve(htmlmin(html));
 				}
             });
         }
