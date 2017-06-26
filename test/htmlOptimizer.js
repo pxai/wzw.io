@@ -39,7 +39,7 @@ describe('#htmlOptimizer.optimize()', function() {
 
 describe('#optimize()', function() {
    it('responds with optimized html with some html', function() {
-    return expect(optimizer.optimize('<div><p>\n\r\r\r</p></div>')).to.be.equals('<div><p></p></div>');
+    return expect(optimizer.optimize('<div><p>\n\r\r\r</p></div>')).to.eventually.equal('<div><p></p></div>');
    });
 });
 
@@ -47,8 +47,8 @@ describe('#optimize()', function() {
 /*
 describe('#optimize()', function() {
    it('responds with optimized html with complex html', function() {
-    return expect(optimizer.optimize(sampleHTML)).to.be.equals(optimizedHTML);
+    return expect(optimizer.optimize(sampleHTML)).to.eventually.equal(optimizedHTML);
    });
-});
-*/
-console.log(optimizer.optimize('<div><p>\n\r\r\r</p></div>'));
+});*/
+
+//console.log(optimizer.optimize('<div><p>\n\r\r\r</p></div>'));
