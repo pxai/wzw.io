@@ -11,7 +11,7 @@ const sampleHTML = '<script type=\"text\/javascript\">var abc= \"hello\";<\/scri
             '<\/div>\r\n        <\/div>\r\n      <\/div>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>' +
             '<pre>       xxxx<\/pre><span>x<\/span> <span>Hello<\/span> <b>billy<\/b>     \r\n' +
             '<input type=\"text\">\r\n<textarea><\/textarea>\r\n<pre><\/pre>';
-const optimizedHTML = '<script>var abc="hello"</script><style>#foo{color:red}</style><div><div><div><div><!--! hello --><div><div><textarea disabled>     this is a textarea </textarea></div></div></div></div></div></div><pre>       xxxx</pre><span>x</span><span>Hello</span><b>billy</b><input><textarea></textarea><pre></pre></b></span></pre></div></style></script>';
+const optimizedHTML = '<script>var abc="hello"</script><style>#foo{color:red}</style><div><div><div><div><!--! hello --><div><div><textarea disabled>     this is a textarea </textarea></div></div></div></div></div></div><pre>       xxxx</pre><span>x</span><span>Hello</span><b>billy</b><input><textarea></textarea><pre></pre>';
 
 beforeEach(function() {
 
@@ -43,12 +43,10 @@ describe('#optimize()', function() {
    });
 });
 
-
-/*
 describe('#optimize()', function() {
    it('responds with optimized html with complex html', function() {
     return expect(optimizer.optimize(sampleHTML)).to.eventually.equal(optimizedHTML);
    });
-});*/
+});
 
 //console.log(optimizer.optimize('<div><p>\n\r\r\r</p></div>'));
