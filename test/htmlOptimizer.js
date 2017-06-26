@@ -35,18 +35,13 @@ describe('#htmlOptimizer.optimize()', function() {
  it('responds with empty object with empty html', function() {
    return expect(optimizer.optimize('')).to.be.empty; // == {}
  });
-});
 
-describe('#optimize()', function() {
    it('responds with optimized html with some html', function() {
     return expect(optimizer.optimize('<div><p>\n\r\r\r</p></div>')).to.eventually.equal('<div><p></p></div>');
    });
-});
 
-describe('#optimize()', function() {
    it('responds with optimized html with complex html', function() {
     return expect(optimizer.optimize(sampleHTML)).to.eventually.equal(optimizedHTML);
    });
 });
 
-//console.log(optimizer.optimize('<div><p>\n\r\r\r</p></div>'));

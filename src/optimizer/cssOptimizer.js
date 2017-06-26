@@ -1,4 +1,4 @@
-const cheerio = require('cheerio');
+const cssmin = require('cssmin');
 
 exports.CssOptimizer =  function (url) {
 
@@ -7,7 +7,7 @@ exports.CssOptimizer =  function (url) {
 				if (css==='') {
 					resolve('');
 				} else {
-               		resolve(css);
+               		resolve(cssmin(css));
 				}
             });
         }
