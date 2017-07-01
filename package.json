@@ -8,7 +8,7 @@
   },
   "scripts": {
     "post-install": "./node_modules/.bin/webdriver-manager update",
-    "start": "cd src && node app.js",
+    "start": "grunt && cd src && node app.js",
     "selenium": "./node_modules/.bin/webdriver-manager start",
     "mocha": "./node_modules/mocha/bin/mocha",
     "test": "mocha",
