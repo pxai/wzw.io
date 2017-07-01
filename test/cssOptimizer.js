@@ -23,12 +23,14 @@ chai.use(chaiAsPromised);
 
 
 describe('#cssOptimizer.optimize()', function() {
-  it('responds with empty object with empty html', function() {
+  it('responds with empty object with empty css', function() {
     return expect(optimizer.optimize('')).to.be.empty; // == {}
   });
 });
 
-/*
+/* 
+15 * 3 = 45
+15 * 3 * 0,1= 4,5
 describe('#optimize()', function() {
   it('changes href reference', function() {
     let url = 'http://www.google.es';
