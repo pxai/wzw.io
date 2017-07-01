@@ -3,6 +3,8 @@ const assert = require('assert');
 const jsOptimizer = require('../src/optimizer/jsOptimizer');
 const rootUrl = 'http://wzw.io/p/';
 var optimizer = new jsOptimizer.JsOptimizer();
+const sampleJs = 'function    hello( a , b , c ) {   sys.log(a + b + c) }';
+const optimizedJs = 'function hello(a,b,c){sys.log(a+b+c)}';
 
 beforeEach(function() {
 
@@ -26,15 +28,9 @@ describe('#jsOptimizer.optimize()', function() {
   it('responds with empty object with empty js', function() {
     return expect(optimizer.optimize('')).to.be.empty; // == {}
   });
-});
 
-/* 
-15 * 3 = 45
-15 * 3 * 0,1= 4,5
-describe('#optimize()', function() {
-  it('changes href reference', function() {
-    let url = 'http://www.google.es';
-    return expect(parser.changeRefs(url)).to.eventually.equal(rootUrl + url); // == {}
+  it('responds with optimized js with some js', function() {
+    return expect(optimizer.optimize(sampleJs)).to.eventually.equal(optimizedJs);
   });
+
 });
-*/

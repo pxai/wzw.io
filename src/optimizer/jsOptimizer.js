@@ -1,13 +1,13 @@
-const htmlmin = require('htmlmin');
+const jsmin = require('jsmin').jsmin;
 
 exports.JsOptimizer =  function (url) {
 
-	this.optimize = function(html) {
+	this.optimize = function(js) {
             return new Promise(function(resolve, reject) {
-				if (html==='') {
+				if (js==='') {
 					resolve('');
 				} else {
-               		return resolve(htmlmin(html));
+               		return resolve(jsmin(js));
 				}
             });
         }
