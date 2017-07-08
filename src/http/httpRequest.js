@@ -1,8 +1,8 @@
 const http = require('http');
+const urlParser = require('../parser/urlParser');
 
-exports.HttpRequest =  function (url) {
+exports.HttpRequest =  function () {
 
-	this.url = url;
 	this.requestDate = new Date();
     this.statusCode = null;
     this.statusMessage = null;
@@ -11,20 +11,22 @@ exports.HttpRequest =  function (url) {
 
 	this.get = function(url) {
             return new Promise(function(resolve, reject) {
+                var urlP = new urlParser.UrlParser(url);      
                 const options = {
-                    port: 80,
-                    hostname: url,
+                    port: urlP.getPort(),
+                    hostname: urlP.getHostname(),
                     method: 'GET',
-                    path: '/'
+                    path: urlP.getPathname()
                 };
+            
                 http.get(options,function(res) {
-                            var content = [];
+                            var data = '';
                             this.statusCode = res.statusCode;
                             this.statusMessage = res.statusMessage;
                             res.on('data', function (e){
-                                content.push(e);
+                                data += e;
                             }).on('end', function () {
-                                resolve(content);
+                                resolve(data);
                             });
                 }).on('error', function(e) {
                     reject(e);

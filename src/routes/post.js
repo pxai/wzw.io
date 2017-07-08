@@ -1,22 +1,13 @@
-/**
- * routes/post.js
- * https://github.com/pxai/wzw.io
- * Pello Altadill - http://pello.io
- */
+
 var http = require('http');
 const urlParser = require('../parser/urlParser');
 
-
 module.exports = function (app) {
 
-    /**
-     * request
-     */
     app.post('/m', function(req, res) {
         const url = new urlParser.UrlParser(req.body.u);
         var response_msg = '';
 
-        //response_msg += 'TODO, make something about this ' + url.getHostname();
         options = {  host: url.getHostname(),
                      path: url.getPathname()};
 
@@ -33,7 +24,7 @@ module.exports = function (app) {
             
             remote_response.on('end', function (err) {
                 console.log('ENDED: ');
-                //if (err) throw err;
+                if (err) throw err;
                 response_msg += data;
                 res.send(response_msg);
             });
