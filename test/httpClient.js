@@ -5,7 +5,6 @@ const httpRequest = require('../src/http/httpRequest');
 var httpClient = new httpRequest.HttpRequest();
 
 beforeEach(function() {
-
 });
 
 

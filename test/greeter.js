@@ -1,9 +1,8 @@
 
 var assert = require('assert');
 
-
-
 const greeter = require('../src/http/greeter');
+
 beforeEach(function() {
 });
 

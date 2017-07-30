@@ -14,7 +14,6 @@ const sampleHTML = '<script type=\"text\/javascript\">var abc= \"hello\";<\/scri
 const optimizedHTML = '<script>var abc="hello"</script><style>#foo{color:red}</style><div><div><div><div><!--! hello --><div><div><textarea disabled>     this is a textarea </textarea></div></div></div></div></div></div><pre>       xxxx</pre><span>x</span><span>Hello</span><b>billy</b><input><textarea></textarea><pre></pre>';
 
 beforeEach(function() {
-
 });
 
 

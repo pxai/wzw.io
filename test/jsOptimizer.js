@@ -7,7 +7,6 @@ const sampleJs = 'function    hello( a , b , c ) {   sys.log(a + b + c) }';
 const optimizedJs = 'function hello(a,b,c){sys.log(a+b+c)}';
 
 beforeEach(function() {
-
 });
 
 

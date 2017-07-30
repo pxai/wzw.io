@@ -5,7 +5,6 @@ const rootUrl = 'http://wzw.io/p/';
 var parser = new htmlParser.HtmlParser();
 
 beforeEach(function() {
-
 });
 
 
