@@ -1,5 +1,5 @@
 
-var assert = require('assert');
+const assert = require('assert');
 
 const greeter = require('../src/http/greeter');
 

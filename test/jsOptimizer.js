@@ -2,7 +2,7 @@
 const assert = require('assert');
 const jsOptimizer = require('../src/optimizer/jsOptimizer');
 const rootUrl = 'http://wzw.io/p/';
-var optimizer = new jsOptimizer.JsOptimizer();
+const optimizer = new jsOptimizer.JsOptimizer();
 const sampleJs = 'function    hello( a , b , c ) {   sys.log(a + b + c) }';
 const optimizedJs = 'function hello(a,b,c){sys.log(a+b+c)}';
 

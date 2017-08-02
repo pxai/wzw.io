@@ -2,7 +2,7 @@
 const assert = require('assert');
 const httpRequest = require('../src/http/httpRequest');
 
-var httpClient = new httpRequest.HttpRequest();
+const httpClient = new httpRequest.HttpRequest();
 
 beforeEach(function() {
 });

@@ -2,7 +2,7 @@
 const assert = require('assert');
 const htmlOptimizer = require('../src/optimizer/htmlOptimizer');
 const rootUrl = 'http://wzw.io/p/';
-var optimizer = new htmlOptimizer.HtmlOptimizer();
+const optimizer = new htmlOptimizer.HtmlOptimizer();
 const sampleHTML = '<script type=\"text\/javascript\">var abc= \"hello\";<\/script>\r\n\r\n\r\n' +
             '<style type=\"text\/css\">#foo { color: red;        }          <\/style>\r\n\r\n\r\n' +
             '<div>\r\n  <div>\r\n    <div><!-- hello -->\r\n      <div>' +

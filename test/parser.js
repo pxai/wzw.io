@@ -2,7 +2,7 @@
 const assert = require('assert');
 const htmlParser = require('../src/parser/htmlParser');
 const rootUrl = 'http://wzw.io/p/';
-var parser = new htmlParser.HtmlParser();
+const parser = new htmlParser.HtmlParser();
 
 beforeEach(function() {
 });

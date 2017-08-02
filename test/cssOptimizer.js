@@ -2,7 +2,7 @@
 const assert = require('assert');
 const cssOptimizer = require('../src/optimizer/cssOptimizer');
 const rootUrl = 'http://wzw.io/p/';
-var optimizer = new cssOptimizer.CssOptimizer();
+const optimizer = new cssOptimizer.CssOptimizer();
 
 beforeEach(function() {
 

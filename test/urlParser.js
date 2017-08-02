@@ -4,9 +4,7 @@ const urlParser = require('../src/parser/urlParser');
 const rootUrl = 'http://wzw.io/p/';
 const parser = new urlParser.UrlParser(rootUrl);
 
-
 beforeEach(function() {
-
 });
 
 
