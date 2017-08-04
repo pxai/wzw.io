@@ -1,5 +1,10 @@
 # wzw.io
 [![Build Status](https://travis-ci.org/pxai/wzw.io.svg?branch=master)](https://travis-ci.org/pxai/wzw.io)
+# Install
+To install just do:
+```
+npm install
+```
 # Testing
 ## e2e
 Make sure to update Firefox or any other browser
@@ -17,4 +22,9 @@ Just run
 ```
 mocha
 ```
+or 
+```
+npm test
+```
+
 It will look for test directory and run the tests files
