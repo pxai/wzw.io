@@ -1,5 +1,8 @@
 # wzw.io
 [![Build Status](https://travis-ci.org/pxai/wzw.io.svg?branch=master)](https://travis-ci.org/pxai/wzw.io)
+
+This is just a prealpha version with some code to try some theories.
+It has some manual testing in main.js but you can also apply mocha.
 # Install
 To install just do:
 ```
