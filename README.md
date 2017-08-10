@@ -28,3 +28,19 @@ npm test
 ```
 
 It will look for test directory and run the tests files
+# Running
+To run the server just:
+```
+npm start
+```
+Or
+Just go to src and
+```
+node app
+```
+
+## Try it
+
+By default it will run in 
+
+[http://localhost:8888](http://localhost:8888 "Localhost")
