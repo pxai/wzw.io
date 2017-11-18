@@ -5,6 +5,7 @@
  */
 var express = require('express');
 var bodyParser = require('body-parser')
+var colors = require('colors');
 
 var app = express();
 
@@ -23,5 +24,5 @@ app.use(express.static('public/dist'));
 
 // And there we go, listening on port 3000
 app.listen(8888, function () {
-    console.log('now listening on http://localhost:' + 8888);
+    console.log('now listening on http://localhost:8888'.blue);
 });

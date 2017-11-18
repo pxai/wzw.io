@@ -1,5 +1,6 @@
 
 var http = require('http');
+var colors = require('colors');
 const urlParser = require('../parser/urlParser');
 
 module.exports = function (app) {
@@ -12,16 +13,16 @@ module.exports = function (app) {
                      path: url.getPathname()};
 
         var http_req = http.request(options, function(remote_response) {
-            console.log('STATUS: ' + remote_response.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(remote_response.headers));
+            console.log('STATUS: ' + remote_response.statusCode+''.blue);
+            console.log('HEADERS: ' + JSON.stringify(remote_response.headers +''.blue));
             var data = '';
             remote_response.setEncoding('binary');
-           
+
             remote_response.on('data', function (chunk) {
                 data += chunk;
-                console.log('BODY: ' + chunk);
+                console.log('BODY: ' + chunk+''.blue);
             });
-            
+
             remote_response.on('end', function (err) {
                 console.log('ENDED: ');
                 if (err) throw err;
