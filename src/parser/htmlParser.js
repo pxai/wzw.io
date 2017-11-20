@@ -5,7 +5,7 @@ exports.HtmlParser =  function (url) {
 
 	this.changeRefs = function(html) {
             return new Promise(function(resolve, reject) {
-				if (html==='') {
+				if (html=='') {
 					resolve('');
 				} else {
                		resolve(rootUrl + html);

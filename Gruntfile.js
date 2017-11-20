@@ -14,7 +14,8 @@ module.exports=function(grunt) {
  'grunt-contrib-htmlmin',
  'grunt-contrib-uglify',
  'grunt-processhtml',
- 'grunt-hashres'
+ 'grunt-hashres',
+ 'grunt-contrib-watch'
 ].forEach(function (g) {
 	grunt.loadNpmTasks(g);
 });
@@ -24,9 +25,10 @@ grunt.initConfig({
 	jshint: {
 		options: {
 			curly: true,
-			eqeqeq: true
+			eqeqeq: true,
+      esversion: 6
 		},
-		target1: ['Gruntfile.js','src/public/js/*.js','!src/**/*.js']
+		target1: ['Gruntfile.js','src/public/js/*.js','src/**/*.js']
 	},
     htmllint:  {
             options: {
@@ -40,7 +42,7 @@ grunt.initConfig({
         },
     csslint:  {
             options: {
-           
+
             },
             src: [
                 'src/public/css/*.css', // Include all HTML files in this directory.
@@ -108,11 +110,21 @@ htmlmin: {
 		  'src/public/stage/index.html': ['src/public/src/index.html']
 		}
 	}
- }
+},
+watch: {
+  scripts: {
+    files: ['src/**/*.js'],
+    tasks: ['jshint'],
+    options: {
+      spawn: false,
+    },
+  },
+}
 });
 
 // Default task
 grunt.registerTask('default',['clean','cssmin','concat','uglify','processhtml','htmlmin']);
+grunt.registerTask('watchit',['clean','cssmin','concat','uglify','processhtml','htmlmin','watch']);
 grunt.registerTask('hard',['clean','jshint','csslint','htmllint','concat']);
 
 };

@@ -6,10 +6,6 @@
   "directories": {
     "test": "test"
   },
-  "watch" : {
-    "test": "mocha",
-    "start": "grunt && cd src && node app.js"
-  },
   "scripts": {
     "post-install": "./node_modules/.bin/webdriver-manager update",
     "start": "grunt && cd src && node app.js",
@@ -56,12 +52,12 @@
     "grunt-contrib-htmlmin": "^1.4.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-hashres": "^0.4.1",
     "grunt-html": "^8.0.2",
     "grunt-processhtml": "^0.4.0",
     "jasmine": "^2.4.1",
     "mocha": "^3.4.2",
-    "npm-watch": "^0.3.0",
     "protractor": "^3.3.0"
   }
 }
