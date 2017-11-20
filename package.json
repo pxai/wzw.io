@@ -6,6 +6,10 @@
   "directories": {
     "test": "test"
   },
+  "watch" : {
+    "test": "mocha",
+    "start": "grunt && cd src && node app.js"
+  },
   "scripts": {
     "post-install": "./node_modules/.bin/webdriver-manager update",
     "start": "grunt && cd src && node app.js",
@@ -57,6 +61,7 @@
     "grunt-processhtml": "^0.4.0",
     "jasmine": "^2.4.1",
     "mocha": "^3.4.2",
+    "npm-watch": "^0.3.0",
     "protractor": "^3.3.0"
   }
 }
