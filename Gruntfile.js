@@ -1,6 +1,7 @@
 
-module.exports=function(grunt) {
 
+module.exports=function(grunt) {
+require('load-grunt-tasks')(grunt);
 // Loading
 // One task: grunt.loadNpmTasks('grunt-contrib-jshint');
 // Many tasks
@@ -119,12 +120,33 @@ watch: {
       spawn: false,
     },
   },
+},
+shell: {
+    connect: {
+        command: 'cd src && node app.js'  // run with shell:connect
+    }
+},
+express: {
+     options: {
+       // Override defaults here
+     },
+     dev: {
+       options: {
+         script: 'src/app.js'
+       }
+     },
+     prod: {
+       options: {
+         script: 'src/app.js',
+         node_env: 'production'
+       }
+     }
 }
 });
 
 // Default task
 grunt.registerTask('default',['clean','cssmin','concat','uglify','processhtml','htmlmin']);
-grunt.registerTask('watchit',['clean','cssmin','concat','uglify','processhtml','htmlmin','watch']);
+grunt.registerTask('watchit',['clean','cssmin','concat','uglify','processhtml','htmlmin','express:dev']);
 grunt.registerTask('hard',['clean','jshint','csslint','htmllint','concat']);
 
 };
