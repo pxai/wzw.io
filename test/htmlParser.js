@@ -20,7 +20,7 @@ var expect = chai.expect;
 var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 
-
+/*
 describe('#changeRefs(html)', function() {
   it('responds with empty object with empty html', function() {
     return expect(parser.changeRefs('')).to.be.empty; // == {}
@@ -32,4 +32,4 @@ describe('#changeRefs(html)', function() {
     let url = 'http://www.google.es';
     return expect(parser.changeRefs(url)).to.eventually.equal(rootUrl + url); // == {}
   });
-});
+});*/
