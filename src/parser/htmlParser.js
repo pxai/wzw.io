@@ -37,6 +37,28 @@ exports.HtmlParser =  function (url) {
 			});
 	}
 
+	this.changeCss = function(html) {
+		return new Promise(function(resolve, reject) {
+			let html = '<b><link href="http://www.as.com/we.jpg" /> Epa ye<img src="http://www.marca.com/we.png" /> </b>';
+				$ = cheerio.load(html);
+				$("link").each(function() {
+								$(this).attr("href", rootUrl + encodeURIComponent($(this).attr("href")));
+				});
+				resolve($.html());
+			});
+	}
+
+	this.changeJs = function(html) {
+		return new Promise(function(resolve, reject) {
+			let html = '<b><script src="http://www.as.com/we.js" /> Epa ye<img src="http://www.marca.com/we.png" /> </b>';
+				$ = cheerio.load(html);
+				$("script").each(function() {
+								$(this).attr("src", rootUrl + encodeURIComponent($(this).attr("src")));
+				});
+				resolve($.html());
+			});
+	}
+
 	this.toString = function () {
 		return 'Name: HtmlParser';
 	}
