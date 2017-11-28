@@ -17,3 +17,6 @@ var optimizer = new htmlOptimizer.HtmlOptimizer();
 
 // client.get(url).then((c) => {console.log(c)});
 client.get(url).then(m => optimizer.optimize(m)).then(o => console.log(o));
+
+parserClient.changeAnchors().then(a => console.log(a))
+parserClient.changeImages().then(a => console.log(a))
