@@ -16,7 +16,8 @@ module.exports = function (app) {
 
         var http_req = http.request(options, function(remote_response) {
             console.log('STATUS: ' + remote_response.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(remote_response.headers));
+            console.log('HEADERS: ', remote_response.headers);
+            
             var data = '';
             remote_response.setEncoding('binary');
 

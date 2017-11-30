@@ -25,7 +25,8 @@ const expectedAnchorsHTML =  '<html><head></head><body><b><a href="'+rootUrl+'ht
 
 describe('#changeAnchors(html)', function() {
   it('replaces HTML links with prefixed links', function() {
-    return expect(parser.changeAnchors(anchorsHTML)).to.eventually.equal(expectedAnchorsHTML); // == {}
+    return expect(parser.changeAnchors(anchorsHTML)).
+              to.eventually.equal(expectedAnchorsHTML); // == {}
   });
 });
 
@@ -35,7 +36,8 @@ const expectedImgHTML = '<html><head></head><body><b><img src="'+rootUrl+'http%3
 
 describe('#changeImages(html)', function() {
   it('replaces HTML img sources with prefixed links', function() {
-    return expect(parser.changeImages(imgHTML)).to.eventually.equal(expectedImgHTML); // == {}
+    return expect(parser.changeImages(imgHTML)).
+                to.eventually.equal(expectedImgHTML); // == {}
   });
 });
 
@@ -44,7 +46,8 @@ const expectedCssHTML = '<html><head></head><body><b><link href="'+rootUrl+'http
 
 describe('#changeCss(html)', function() {
   it('replaces HTML css href with prefixed links', function() {
-    return expect(parser.changeCss(cssHTML)).to.eventually.equal(expectedCssHTML); // == {}
+    return expect(parser.changeCss(cssHTML)).
+                to.eventually.equal(expectedCssHTML); // == {}
   });
 });
 
@@ -53,6 +56,7 @@ const expectedJsHTML = '<html><head></head><body><b><script src="'+rootUrl+'http
 
 describe('#changeJs(html)', function() {
     it('replaces HTML css href with prefixed links', function() {
-        return expect(parser.changeJs(jsHTML)).to.eventually.equal(expectedJsHTML); // == {}
+        return expect(parser.changeJs(jsHTML)).
+              to.eventually.equal(expectedJsHTML); // == {}
     });
 });
