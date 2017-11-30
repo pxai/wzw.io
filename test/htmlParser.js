@@ -38,3 +38,21 @@ describe('#changeImages(html)', function() {
     return expect(parser.changeImages(imgHTML)).to.eventually.equal(expectedImgHTML); // == {}
   });
 });
+
+const cssHTML = '<html><head></head><body><b><link href="http://www.as.com/we.css"> Epa ye<link href="http://www.marca.com/we.css"> </b></body></html>';
+const expectedCssHTML = '<html><head></head><body><b><link href="'+rootUrl+'http%3A%2F%2Fwww.as.com%2Fwe.css"> Epa ye<link href="'+rootUrl+'http%3A%2F%2Fwww.marca.com%2Fwe.css"> </b></body></html>';
+
+describe('#changeCss(html)', function() {
+  it('replaces HTML css href with prefixed links', function() {
+    return expect(parser.changeCss(cssHTML)).to.eventually.equal(expectedCssHTML); // == {}
+  });
+});
+
+const jsHTML = '<html><head></head><body><b><script src="http://www.as.com/we.js"></script> Epa ye<script src="http://www.marca.com/we.js"></script> </b></body></html>';
+const expectedJsHTML = '<html><head></head><body><b><script src="'+rootUrl+'http%3A%2F%2Fwww.as.com%2Fwe.js"></script> Epa ye<script src="'+rootUrl+'http%3A%2F%2Fwww.marca.com%2Fwe.js"></script> </b></body></html>';
+
+describe('#changeJs(html)', function() {
+    it('replaces HTML css href with prefixed links', function() {
+        return expect(parser.changeJs(jsHTML)).to.eventually.equal(expectedJsHTML); // == {}
+    });
+});
