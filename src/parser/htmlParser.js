@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const rootUrl = 'http://wzw.io/p/';
 
-exports.HtmlParser =  function (url) {
+exports.HtmlParser =  function () {
 
 	this.changeRefs = function(html) {
 
