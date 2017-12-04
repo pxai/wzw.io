@@ -22,25 +22,23 @@ module.exports = function (app, repository) {
             console.log('STATUS: ' + remote_response.statusCode);
             console.log('HEADERS: ', remote_response.headers);
             repository.save(new resource.Resource(req.body.u,remote_response.statusCode,remote_response.headers));
-            var data = '';
+            let data = [];
             remote_response.setEncoding('binary');
 
             remote_response.on('data', function (chunk) {
-                data += chunk;
+                data.push(chunk);
                 console.log('BODY: ' + chunk.length);
-            });
-
-            remote_response.on('end', function (err) {
+            }).on('end', function (err) {
                 console.log('ENDED: ', data.length);
                 console.log(repository.dump());
                 if (err) throw err;
-                response_msg += data;
-                parser.changeAnchors(response_msg).then((changed_response_msg) => {
-                  optimizer.optimize(changed_response_msg).then(minifiedHtml => {
+                response_msg = data.toString();
+                //parser.changeAnchors(response_msg).then((changed_response_msg) => {
+                  optimizer.optimize(response_msg).then(minifiedHtml => {
                     console.log("Sizes: ", response_msg.length, minifiedHtml.length);
                     res.send(minifiedHtml);
                   });
-              });
+              //});
             });
         });
         http_req.end();

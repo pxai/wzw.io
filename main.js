@@ -5,7 +5,7 @@ const httpRequest = require('./src/http/httpRequest');
 const htmlParser = require('./src/parser/htmlParser');
 const htmlOptimizer = require('./src/optimizer/htmlOptimizer');
 
-const url = 'http://localhost/dashboard/';
+const url = 'http://localhost/';
 
 var client = new httpRequest.HttpRequest();
 var parserClient = new htmlParser.HtmlParser();
@@ -18,5 +18,5 @@ var optimizer = new htmlOptimizer.HtmlOptimizer();
 // client.get(url).then((c) => {console.log(c)});
 client.get(url).then(m => optimizer.optimize(m)).then(o => console.log(o));
 
-parserClient.changeAnchors().then(a => console.log(a))
-parserClient.changeImages().then(a => console.log(a))
+//parserClient.changeAnchors().then(a => console.log(a))
+//parserClient.changeImages().then(a => console.log(a))

@@ -4,10 +4,11 @@ exports.HtmlOptimizer =  function (url) {
 
 	this.optimize = function(html) {
       return new Promise(function(resolve, reject) {
+					console.log('Trying to opmitize: ', html.length);
 						if (html==='') {
 							resolve('');
 						} else {
-		           return resolve(htmlmin(html));
+		          resolve(htmlmin(html));
 						}
       });
 		}
