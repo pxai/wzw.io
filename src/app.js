@@ -6,6 +6,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var colors = require('colors');
+const resourceRepository = require('./data/resourceRepository');
 
 var app = express();
 
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 // We set routes
-routes(app);
+routes(app, new resourceRepository.ResourceRepository());
 
 // We set static content
 app.use(express.static('public/dist'));
