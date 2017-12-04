@@ -4,6 +4,7 @@ var colors = require('colors');
 const urlParser = require('../parser/urlParser');
 const htmlOptimizer = require('../optimizer/htmlOptimizer');
 const htmlParser = require('../parser/htmlParser');
+const httpRequest = require('../http/httpRequest');
 const resource = require('../data/resource');
 
 module.exports = function (app, repository) {
@@ -12,13 +13,20 @@ module.exports = function (app, repository) {
         const url = new urlParser.UrlParser(req.body.u);
         const parser = new htmlParser.HtmlParser();
         const optimizer = new htmlOptimizer.HtmlOptimizer();
+        const http = new httpRequest.HttpRequest();
 
         var response_msg = '';
 
         options = {  host: url.getHostname(),
                      path: url.getPathname()};
 
-        var http_req = http.request(options, function(remote_response) {
+
+                     ;
+        http.get(url.getUrl())
+          .then(html => optimizer.optimize(html))
+          .then(optimizedHtml => res.send(optimizedHtml));
+
+        /*var http_req = http.request(options, function(remote_response) {
             console.log('STATUS: ' + remote_response.statusCode);
             console.log('HEADERS: ', remote_response.headers);
             repository.save(new resource.Resource(req.body.u,remote_response.statusCode,remote_response.headers));
@@ -41,7 +49,7 @@ module.exports = function (app, repository) {
               //});
             });
         });
-        http_req.end();
+        http_req.end();*/
     });
 
     app.get('/g/:id/:url', function(req, res) {

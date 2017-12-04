@@ -3,6 +3,7 @@ const url = require('url');
 
 exports.UrlParser =  function (urlToParse) {
     this.url = url.parse(urlToParse);
+    this.rawUrl = urlToParse;
 
 	this.getHostname = function() {
            return this.url.hostname;
@@ -21,6 +22,10 @@ exports.UrlParser =  function (urlToParse) {
 	this.getPathname = function() {
            return this.url.pathname;
     }
+
+    this.getUrl = function() {
+             return this.rawUrl;
+      }
 
 	this.toString = function () {
 		return 'Name: UrlParser';
