@@ -1,6 +1,6 @@
 
 const assert = require('assert');
-const cssOptimizer = require('../src/optimizer/imageOptimizer');
+const imageOptimizer = require('../src/optimizer/imageOptimizer');
 const rootUrl = 'http://wzw.io/p/';
 const optimizer = new imageOptimizer.ImageOptimizer();
 
@@ -15,4 +15,3 @@ describe('#imageOptimizer.toString()', function() {
   });
 });
 
-/
