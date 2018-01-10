@@ -26,30 +26,6 @@ module.exports = function (app, repository) {
           .then(html => optimizer.optimize(html))
           .then(optimizedHtml => res.send(optimizedHtml));
 
-        /*var http_req = http.request(options, function(remote_response) {
-            console.log('STATUS: ' + remote_response.statusCode);
-            console.log('HEADERS: ', remote_response.headers);
-            repository.save(new resource.Resource(req.body.u,remote_response.statusCode,remote_response.headers));
-            let data = [];
-            remote_response.setEncoding('binary');
-
-            remote_response.on('data', function (chunk) {
-                data.push(chunk);
-                console.log('BODY: ' + chunk.length);
-            }).on('end', function (err) {
-                console.log('ENDED: ', data.length);
-                console.log(repository.dump());
-                if (err) throw err;
-                response_msg = data.toString();
-                //parser.changeAnchors(response_msg).then((changed_response_msg) => {
-                  optimizer.optimize(response_msg).then(minifiedHtml => {
-                    console.log("Sizes: ", response_msg.length, minifiedHtml.length);
-                    res.send(minifiedHtml);
-                  });
-              //});
-            });
-        });
-        http_req.end();*/
     });
 
     app.get('/g/:id/:url', function(req, res) {
