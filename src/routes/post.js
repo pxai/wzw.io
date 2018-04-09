@@ -1,5 +1,3 @@
-
-var http = require('http');
 var colors = require('colors');
 const urlParser = require('../parser/urlParser');
 const htmlOptimizer = require('../optimizer/htmlOptimizer');
@@ -20,8 +18,6 @@ module.exports = function (app, repository) {
         options = {  host: url.getHostname(),
                      path: url.getPathname()};
 
-
-                     ;
         http.get(url.getUrl())
           .then(html => optimizer.optimize(html))
           .then(optimizedHtml => res.send(optimizedHtml));

@@ -1,4 +1,4 @@
-const http = require('http');
+const https = require('https');
 const urlParser = require('../parser/urlParser');
 let htmlmin = require('htmlmin');
 
@@ -12,7 +12,7 @@ exports.HttpRequest =  function () {
 
 	this.get = function(url) {
             return new Promise(function(resolve, reject) {
-                var urlP = new urlParser.UrlParser(url);
+                let urlP = new urlParser.UrlParser(url);
                 const options = {
                     port: urlP.getPort(),
                     hostname: urlP.getHostname(),
@@ -22,18 +22,18 @@ exports.HttpRequest =  function () {
 
 								if (urlP.getPort() === 80) {
 																		console.log('HTTP request!')
-									let req = http.get(options,function(res) {
-															let data = [];
-															this.statusCode = res.statusCode;
-															this.statusMessage = res.statusMessage;
-															res.on('data', function (e){
-																	data.push(e);
-															}).on('end', function () {
-																 resolve(Buffer.concat(data).toString());
-															});
-									}).on('error', function(e) {
-											reject(e);
-									});
+	                let req = http.get(options,function(res) {
+	                            let data = [];
+	                            this.statusCode = res.statusCode;
+	                            this.statusMessage = res.statusMessage;
+	                            res.on('data', function (e){
+	                                data.push(e);
+	                            }).on('end', function () {
+	                               resolve(Buffer.concat(data).toString());
+	                            });
+	                }).on('error', function(e) {
+	                    reject(e);
+	                });
 								} else {
 									console.log('HTTPS request!')
 									let req = https.get(options,function(res) {
@@ -49,7 +49,6 @@ exports.HttpRequest =  function () {
 											reject(e);
 									});
 								}
-
 								req.end();
             });
         }
