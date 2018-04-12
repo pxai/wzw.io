@@ -1,4 +1,5 @@
 const http = require('http');
+const https = require('https');
 const urlParser = require('../parser/urlParser');
 let htmlmin = require('htmlmin');
 
@@ -34,6 +35,8 @@ exports.HttpRequest =  function () {
 									}).on('error', function(e) {
 											reject(e);
 									});
+
+								req.end();
 								} else {
 									console.log('HTTPS request!')
 									let req = https.get(options,function(res) {
@@ -46,11 +49,13 @@ exports.HttpRequest =  function () {
 																 resolve(Buffer.concat(data).toString());
 															});
 									}).on('error', function(e) {
+										console.error('\nError:', e);
 											reject(e);
 									});
-								}
 
 								req.end();
+								}
+
             });
         }
 

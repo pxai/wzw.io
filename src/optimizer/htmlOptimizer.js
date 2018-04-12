@@ -24,7 +24,17 @@ exports.HtmlOptimizer =  function (url) {
 						if (html==='') {
 							resolve('');
 						} else {
-		          resolve(minify(html, options));
+							let minifiedHTML = '';
+							try {
+								console.log(html.length);
+								minifiedHTML= minify(html, options);
+							} catch (e) {
+								console.log(e)
+							}
+							let minifiedHTMLLength = minifiedHTML.length;
+							let report = `<div style='background-color: orange;position:absolute;top:0;right:0;'><b>HTML</b>: ${minifiedHTML.length} reduced to ${minifiedHTMLLength} ${Math.round((minifiedHTMLLength/html.length)*100) + '%'}</div>`;
+							console.log('Reduced to: ', minifiedHTMLLength, Math.round((minifiedHTMLLength/html.length)*100) + '%');
+		          			resolve(minifiedHTML+report);
 						}
       });
 		}

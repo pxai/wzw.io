@@ -20,7 +20,8 @@ module.exports = function (app, repository) {
 
         http.get(url.getUrl())
           .then(html => optimizer.optimize(html))
-          .then(optimizedHtml => res.send(optimizedHtml));
+          .then(optimizedHtml => res.send(optimizedHtml+"<div>Stats: </div>"))
+          .catch(e=> console.error('Screw up', e));
 
     });
 
